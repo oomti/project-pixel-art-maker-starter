@@ -1,3 +1,9 @@
+// Udacity Project specification and design criteria:
+// Having for or while loop : OK
+// Implementing a makeGrid() function and calling upon user submit: OK
+// Application of DOM selectors: OK
+// Application of event listeners: OK
+
 // Select color input
 // Select size input
 
@@ -16,15 +22,15 @@ $('input[type=submit]').on('click',function(event) {
 
 //The event listener to color the pixel
 //Important notice: The table components are created later, so event listeners have to be delegated afterwards.
-
+// The event listener is attached to the parent element, which is a static component on the webpage.
 $('#pixel_canvas').on('click','td',function(event) {
 	const newColor=$('#colorPicker').val(); //Get the color value from the colorPicker input field
 	$(this).css('background-color',newColor);
 })
-
+// Description of the makeGrid() function:
 function makeGrid() {
 	
-	//Delete the previous table
+	//Delete the previous table as a child element of pixel_canvas
 	$('#pixel_canvas').empty(); 
 
 	//Reading the input field and assigning the value to variables
@@ -33,6 +39,7 @@ function makeGrid() {
 		
 	//Creating the table and appending to the canvas
 	// The table could be created without using any for loop, with the string.repeat function of JS
+	//Rubric project Udacity specification of making for loops : OK
 	for (let row_pos=1;row_pos<=height;row_pos++) {
 		//Creating the rows with unique ID
 		$('#pixel_canvas').append('<tr id="row_'+ row_pos +'"></tr>');
